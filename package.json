@@ -1,0 +1,15 @@
+{
+  "name": "airport-shuttle-app",
+  "version": "1.0.0",
+  "description": "A web app for the Wright Brothers airport shuttle service made for INFS 428.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Edward Breja",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
