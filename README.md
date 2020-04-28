@@ -1,4 +1,4 @@
-# Arduino Clock Web Interface
+# Wright Brothers Airport Shuttle Service
 
 This repository houses the codebase for Edward Breja's Database System Design & Dev final project. The repository contains an Express.js + MySQL web application for a fictional company called *Wright Brothers Airport Shuttle Service*. 
 
