@@ -7,8 +7,10 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'admin',
     password: 'admin',
-    database: 'my_db',
+    database: 'wbas_mysql',
 });
+
+connection.connect(() => console.log('mysql conntected'));
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
