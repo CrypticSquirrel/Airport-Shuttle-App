@@ -1,7 +1,7 @@
 /* ------------------------------ Form Handler ------------------------------ */
 
 $(document).ready(function() {
-    $('#print').click(() => {
+    $('#submit-button').click(() => {
         const cust_name = $('#name').val();
         const email = $('#email').val();
         const check_out_date = $('#return-date').val();
@@ -34,11 +34,8 @@ $(document).ready(function() {
             headers: {
                 'Content-Type': 'application/json',
             },
-        })
-            .then(response => response.json())
-            .then(json => {
-                console.log(json);
-                alert('Information Saved');
-            });
+        }).then(() => {
+            alert('Information Saved');
+        });
     });
 });

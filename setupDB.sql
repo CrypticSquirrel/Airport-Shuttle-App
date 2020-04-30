@@ -23,7 +23,7 @@ CREATE TABLE customer (
 DROP TABLE IF EXISTS private_customer;
 
 CREATE TABLE private_customer (
-    private_customer_id int NOT NULL AUTO_INCREMENT,
+    private_customer_id int NOT NULL,
     pilot_licence_number VARCHAR(255),
     aircraft_registration_number VARCHAR(255),
     PRIMARY KEY(private_customer_id),
