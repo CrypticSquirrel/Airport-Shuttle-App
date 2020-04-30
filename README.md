@@ -6,7 +6,7 @@ Demo
 ---
 [UI Demo Site](https://crypticsquirrel.github.io/Airport-Shuttle-App/)
 
-
+<img src="https://github.com/CrypticSquirrel/Airport-Shuttle-App/blob/master/demo.gif" width="500">
 
 Documentation 
 ---
@@ -17,7 +17,12 @@ Attribution
 ---
 
 #### Software
+
 - [mysqljs](https://github.com/mysqljs/mysql) : node.js driver for mysql
+
+#### User Interface
+
+- [Top-hat Themes](https://github.com/themesguide/top-hat) : Bootstrap themes
 
 License
 ---
