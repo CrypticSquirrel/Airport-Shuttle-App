@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" href="/docs/pics/favicon.ico" />
+        <link rel="icon" href="../pics/favicon.ico" />
         <title>Customer Search</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
@@ -11,6 +11,10 @@
         />
         <link
             href="//cdnjs.cloudflare.com/ajax/libs/ionicons/3.0.0/css/ionicons.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://unpkg.com/tabulator-tables@4.6.2/dist/css/tabulator.min.css"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="../styles/theme.min.css" />
@@ -38,17 +42,82 @@
                             <a class="nav-link" href="../pages/questions.html">Questions</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../pages/ticket-search.html">Parking Ticket Search</a>
+                            <a class="nav-link" href="../pages/ticket-search.html"
+                                >Parking Ticket Search</a
+                            >
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        
+
+        <section id="forms" class="container pb-5"></section>
+
+        <div class="container">
+            <div class="form-group row">
+                <button
+                    type="button"
+                    class="col-md-2 btn btn-outline-secondary form-control"
+                    id="download-csv"
+                >
+                    Download CSV
+                </button>
+
+                <label class="col-form-label col-md-1 form-control-label text-muted">Field</label>
+                <div class="table col-md-3">
+                    <select id="filter-field" class="form-control">
+                        <option></option>
+                        <option value="customer_id">Customer ID</option>
+                        <option value="cust_name">Name</option>
+                        <option value="email">Email</option>
+                        <option value="phone">Phone</option>
+                        <option value="flight_number">Flight Number</option>
+                        <option value="return_flight_number">Return Flight Number</option>
+                        <option value="pilot_licence_number">Pilot Licence Number</option>
+                        <option value="aircraft_registration_number">Aircraft Registration Number</option>
+                    </select>
+                </div>
+                <label class="col-form-label col-md-1 form-control-label text-muted"
+                    >Operator</label
+                >
+                <div class="table col-md-1">
+                    <select id="filter-type" class="form-control">
+                        <option value="=">=</option>
+                        <option value="<"><</option>
+                        <option value="<="><=</option>
+                        <option value=">">></option>
+                        <option value=">=">>=</option>
+                        <option value="!=">!=</option>
+                        <option value="like">like</option>
+                    </select>
+                </div>
+                <label class="col-form-label col-md-1 form-control-label text-muted">Value</label>
+                <div class="table col-md-3">
+                    <input
+                        id="filter-value"
+                        class="form-control"
+                        type="text"
+                        placeholder="value to filter"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div id="example-table"></div>
+                </div>
+            </div>
+        </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src=""></script>
+        <script
+            type="text/javascript"
+            src="https://unpkg.com/tabulator-tables@4.6.2/dist/js/tabulator.min.js"
+        ></script>
+        <script src="../scripts/cust-search.js"></script>
     </body>
 </html>

@@ -120,6 +120,17 @@ const getCustomerNumber = (email, phone, callback) => {
 
 /* --------------------------------- Routing -------------------------------- */
 
+app.get('/customer', (req, res) => {
+    db.query(
+        'SELECT * FROM customer LEFT JOIN private_customer ON customer.customer_id = private_customer.private_customer_id;',
+        (error, results) => {
+            if (error) throw error;
+            res.json(results);
+            res.end();
+        }
+    );
+});
+
 app.post('/handleTicket', (req, res) => {
     const { VIN } = req.body;
     const { parkingType } = req.body;
