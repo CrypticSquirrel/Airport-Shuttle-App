@@ -9,7 +9,7 @@ const moment = require('moment');
 /* ---------------------------- Global Variables ---------------------------- */
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const db = mysql.createConnection({
     host: 'localhost',
@@ -30,7 +30,7 @@ db.connect(err => {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.listen(port, () => console.log(`listening at http://localhost:${port}/`));
+app.listen(port, () => console.log(`listening at ${port}`));
 app.use(express.static('docs'));
 
 /* ------------------------------ MySQL Queries ----------------------------- */
