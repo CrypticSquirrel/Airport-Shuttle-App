@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" href="/docs/pics/favicon.ico" />
+        <link rel="icon" href="../pics/favicon.ico" />
         <title>WBAS Ticketing</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
@@ -14,7 +14,12 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="../styles/theme.min.css" />
+        <link
+            href="https://unpkg.com/tabulator-tables@4.6.2/dist/css/tabulator.min.css"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="../styles/index.css" />
+        <link rel="stylesheet" href="../styles/ticketing.css" />
     </head>
     <body data-spy="scroll" data-target="#navbar1" data-offset="60">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary" id="navbar1">
@@ -38,17 +43,114 @@
                             <a class="nav-link" href="../pages/questions.html">Questions</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../pages/ticket-search.html">Parking Ticket Search</a>
+                            <a class="nav-link" href="../pages/ticket-search.html"
+                                >Parking Ticket Search</a
+                            >
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        
+
+        <div id="HomeDisplay">
+            <header class="bg-primary">
+                <div class="container h-100">
+                    <div class="row h-100">
+                        <div class="col-12">
+                            <div
+                                class="text-center m-0 vh-100 d-flex flex-column justify-content-center text-light"
+                            >
+                                <h1 class="display-4 text-secondary">Ticketing</h1>
+                                <p class="lead">
+                                    Select covered or uncovered below and then enter the VIN.
+                                </p>
+
+                                <form role="form">
+                                    <div class="form-group row">
+                                        <div class="col-2"></div>
+
+                                        <div class="col-4">
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-secondary btn-lg btn-block active"
+                                                id="covered-parking"
+                                            >
+                                                Covered Parking
+                                            </button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-secondary btn-lg btn-block"
+                                                id="uncovered-parking"
+                                            >
+                                                Uncovered Parking
+                                            </button>
+                                        </div>
+                                        <div class="col-2"></div>
+                                    </div>
+                                    <div class="form-group row was-validated">
+                                        <div class="col-3"></div>
+
+                                        <label
+                                            class="col-1 col-form-label form-control-label text-light"
+                                            >VIN</label
+                                        >
+                                        <div class="col-4">
+                                            <input
+                                                class="form-control"
+                                                type="text"
+                                                required=""
+                                                id="vin"
+                                                value=""
+                                            />
+                                            <div class="invalid-feedback text-secondary">
+                                                VIN is required.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="mt-2 mx-auto">
+                                            <div class="btn-group">
+                                                <input
+                                                    type="button"
+                                                    class="btn btn-outline-light btn-lg"
+                                                    id="print"
+                                                    value="Print Ticket"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <div class="bg-primary m-0 vh-100" id="DataDisplay">
+            <div class="row align-items-center justify-content-center h-100">
+                <div class="col-6">
+                    <div class="card bg-transparent border-0">
+                        <div class="card-header text-light text-center bg-transparent border-0">
+                            <h1>Here's your ticket!</h1>
+                        </div>
+                        <div class="card-body">
+                            <div id="example-table"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src=""></script>
+        <script
+            type="text/javascript"
+            src="https://unpkg.com/tabulator-tables@4.6.2/dist/js/tabulator.min.js"
+        ></script>
+        <script src="../scripts/ticketing.js"></script>
     </body>
 </html>

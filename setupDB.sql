@@ -1,5 +1,8 @@
--- To run file: `mysql -u admin -p < setupDB.sql`
+-- To run file: `mysql -u root -p < setupDB.sql`
+-- Comment out what drops you don't need if rerunning
+
 /* ----------------------------- Create Database ---------------------------- */
+DROP DATABASE IF EXISTS wbas_mysql;
 CREATE DATABASE wbas_mysql;
 
 USE wbas_mysql;
@@ -9,7 +12,7 @@ DROP TABLE IF EXISTS customer;
 
 CREATE TABLE customer (
     customer_id int NOT NULL AUTO_INCREMENT,
-    name VARCHAR(255),
+    cust_name VARCHAR(255),
     email VARCHAR(255),
     phone VARCHAR(26),
     flight_number VARCHAR(255),
@@ -20,7 +23,7 @@ CREATE TABLE customer (
 DROP TABLE IF EXISTS private_customer;
 
 CREATE TABLE private_customer (
-    private_customer_id int NOT NULL AUTO_INCREMENT,
+    private_customer_id int NOT NULL,
     pilot_licence_number VARCHAR(255),
     aircraft_registration_number VARCHAR(255),
     PRIMARY KEY(private_customer_id),
@@ -36,15 +39,15 @@ CREATE TABLE vehicle (
     plate_number VARCHAR(255),
     customer_id INT,
     PRIMARY KEY (VIN),
-    FOREIGN KEY(customer_id) REFERENCES customer(customer_id) ON DELETE RESTRICT
+    FOREIGN KEY(customer_id) REFERENCES customer(customer_id)
 );
 
 DROP TABLE IF EXISTS lot;
 
 CREATE TABLE lot (
     lot_id INT NOT NULL AUTO_INCREMENT,
-    TYPE VARCHAR(10) NOT NULL,
-    STATUS VARCHAR(10) NOT NULL,
+    lot_type VARCHAR(10) NOT NULL,
+    is_available BOOLEAN NOT NULL,
     PRIMARY KEY (lot_id)
 );
 
@@ -56,12 +59,12 @@ CREATE TABLE parking_ticket (
     check_in_date DATE NOT NULL,
     check_out_time TIME,
     check_out_date DATE,
-    paid BOOL DEFAULT 0,
+    paid BOOLEAN DEFAULT 0,
     rate_code CHAR(2),
     lot_id INT,
     VIN VARCHAR(255),
     PRIMARY KEY (ticket_id),
-    FOREIGN KEY(lot_id) REFERENCES lot(lot_id) 
+    FOREIGN KEY(lot_id) REFERENCES lot(lot_id),
     FOREIGN KEY(VIN) REFERENCES vehicle(VIN)
 );
 
@@ -109,12 +112,12 @@ ORDER BY
 /* --------------------------------- Procedures -------------------------------- */
 DELIMITER $$
 DROP PROCEDURE IF EXISTS populateLots$$
-CREATE PROCEDURE populateLots(IN NumRows INT, IN type VARCHAR(10))
+CREATE PROCEDURE populateLots(IN NumRows INT, IN lot_type VARCHAR(10))
     BEGIN
         DECLARE i INT;
         SET i = 1;
         WHILE i <= NumRows DO
-            INSERT INTO lot (type, status) VALUES (type, 'empty');
+            INSERT INTO lot (lot_type, is_available) VALUES (lot_type, 1);
             SET i = i + 1;
         END WHILE;
         COMMIT;

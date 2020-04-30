@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" href="/docs/pics/favicon.ico" />
+        <link rel="icon" href="../pics/favicon.ico" />
         <title>WBAS Questions</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
@@ -44,11 +44,88 @@
                 </div>
             </div>
         </nav>
+        <section class="container pb-2"></section>
+
+        <section class="container pb-5">
+            <div class="row">
+                <div class="col-6">
+                    <p class="lead">
+                        QUESTION: How many vehicles for pickup on certain date?
+                    </p>
+                </div>
+                <div class="col-2">
+                    <input class="" type="date" id="pickup-date" >
+                </div>
+                <div class="col-2">
+                    <input type="button" class="btn btn-outline-primary btn-sm" value="Find Out!" id="pickup">
+                </div>
+            </div>
+        </section>
+        <section class="container pb-5">
+            <div class="row">
+                <div class="col-6">
+                    <p class="lead">
+                        QUESTION: How many cars were checked in today?
+                    </p>
+                </div>
+                <div class="col-2">
+                    <input type="button" class="btn btn-outline-primary btn-sm" value="Find Out!" id="checkIn">
+                </div>
+            </div>
+        </section>
+        <section class="container pb-5">
+            <div class="row">
+                <div class="col-6">
+                    <p class="lead">
+                        QUESTION: How many cars were checked in today?
+                    </p>
+                </div>
+                <div class="col-2">
+                    <input type="button" class="btn btn-outline-primary btn-sm" value="Find Out!" id="checkOut">
+                </div>
+            </div>
+        </section>
+        <section class="container pb-5">
+            <div class="row">
+                <div class="col-6">
+                    <p class="lead">
+                        QUESTION: What is the average length of stay for vehicles? 
+                    </p>
+                </div>
+                <div class="col-2">
+                    <input type="button" class="btn btn-outline-primary btn-sm" value="Find Out!" id="avgStay">
+                </div>
+            </div>
+        </section>
+        <section class="container pb-5">
+            <div class="row">
+                <div class="col-6">
+                    <p class="lead">
+                        QUESTION: How many cars are using the covered spaces?  
+                    </p>
+                </div>
+                <div class="col-2">
+                    <input type="button" class="btn btn-outline-primary btn-sm" value="Find Out!" id="covered">
+                </div>
+            </div>
+        </section>
+        <section class="container pb-5">
+            <div class="row">
+                <div class="col-6">
+                    <p class="lead">
+                        QUESTION: How many cars are using the uncovered spaces?  
+                    </p>
+                </div>
+                <div class="col-2">
+                    <input type="button" class="btn btn-outline-primary btn-sm" value="Find Out!" id="uncovered">
+                </div>
+            </div>
+        </section>
         
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src=""></script>
+        <script src="../scripts/questions.js"></script>
     </body>
 </html>
