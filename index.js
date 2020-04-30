@@ -131,6 +131,14 @@ app.get('/customer', (req, res) => {
     );
 });
 
+app.get('/ticket', (req, res) => {
+    db.query('SELECT * FROM parking_ticket;', (error, results) => {
+        if (error) throw error;
+        res.json(results);
+        res.end();
+    });
+});
+
 app.post('/handleTicket', (req, res) => {
     const { VIN } = req.body;
     const { parkingType } = req.body;
