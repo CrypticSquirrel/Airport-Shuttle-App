@@ -13,6 +13,10 @@
             href="//cdnjs.cloudflare.com/ajax/libs/ionicons/3.0.0/css/ionicons.css"
             rel="stylesheet"
         />
+        <link
+            href="https://unpkg.com/tabulator-tables@4.6.2/dist/css/tabulator.min.css"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="../styles/theme.min.css" />
         <link rel="stylesheet" href="../styles/index.css" />
     </head>
@@ -38,17 +42,73 @@
                             <a class="nav-link" href="../pages/questions.html">Questions</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../pages/ticket-search.html">Parking Ticket Search</a>
+                            <a class="nav-link" href="../pages/ticket-search.html"
+                                >Parking Ticket Search</a
+                            >
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        
+        <div class="container-fluid mt-5">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <h2 class="text-center">Active Record</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div id="example-table"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mt-3">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <h2 class="text-center">Claimed Record</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div id="example-table-2"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mt-3">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <h2 class="text-center">Daily Check-In Report</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div id="example-table-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mt-3">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <h2 class="text-center">Tentative Check-Out Report</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div id="example-table-4"></div>
+                </div>
+            </div>
+        </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src=""></script>
+        <script
+            type="text/javascript"
+            src="https://unpkg.com/tabulator-tables@4.6.2/dist/js/tabulator.min.js"
+        ></script>
+        <script src="../scripts/records.js"></script>
     </body>
 </html>

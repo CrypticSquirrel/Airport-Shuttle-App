@@ -139,6 +139,111 @@ app.get('/ticket', (req, res) => {
     });
 });
 
+app.get('/avgStayTime', (req, res) => {
+    db.query(
+        'SELECT AVG(DATEDIFF(check_out_date,check_in_date)) FROM parking_ticket;',
+        (error, results) => {
+            if (error) throw error;
+            res.json(results);
+            res.end();
+        }
+    );
+});
+
+app.get('/checkToday', (req, res) => {
+    db.query(
+        'SELECT COUNT(*) as cnt FROM parking_ticket WHERE DATE(check_in_date) = CURDATE();',
+        (error, results) => {
+            if (error) throw error;
+            res.json(results);
+            res.end();
+        }
+    );
+});
+
+app.get('/checkOut', (req, res) => {
+    db.query(
+        'SELECT COUNT(*) as cnt FROM parking_ticket WHERE DATE(check_out_date) = CURDATE();',
+        (error, results) => {
+            if (error) throw error;
+            res.json(results);
+            res.end();
+        }
+    );
+});
+
+app.get('/covered', (req, res) => {
+    db.query(
+        'SELECT COUNT(*) as cnt FROM lot WHERE lot_type = ? AND is_available = 0',
+        'covered',
+        (error, results) => {
+            if (error) throw error;
+            res.json(results);
+            res.end();
+        }
+    );
+});
+
+app.get('/uncovered', (req, res) => {
+    db.query(
+        'SELECT COUNT(*) as cnt FROM lot WHERE lot_type = ? AND is_available = 0',
+        'uncovered',
+        (error, results) => {
+            if (error) throw error;
+            res.json(results);
+            res.end();
+        }
+    );
+});
+
+app.get('/activeRecord', (req, res) => {
+    db.query('SELECT * FROM active_record_view', (error, results) => {
+        if (error) throw error;
+        res.json(results);
+        res.end();
+    });
+});
+
+app.get('/claimedRecord', (req, res) => {
+    db.query('SELECT * FROM claimed_record_view', (error, results) => {
+        if (error) throw error;
+        res.json(results);
+        res.end();
+    });
+});
+
+app.get('/daily', (req, res) => {
+    const sql =
+        ' SELECT v.*, p.check_in_date, p.rate_code FROM parking_ticket p INNER JOIN vehicle v ON p.VIN = v.VIN WHERE DATE(check_in_date) = CURDATE() ORDER BY rate_code;';
+    db.query(sql, (error, results) => {
+        if (error) throw error;
+        res.json(results);
+        res.end();
+    });
+});
+
+app.get('/tomorrow', (req, res) => {
+    const sql =
+        ' SELECT v.*, p.check_in_date, p.rate_code FROM parking_ticket p INNER JOIN vehicle v ON p.VIN = v.VIN WHERE DATE(check_in_date) = CURDATE() + 1 ORDER BY rate_code;';
+    db.query(sql, (error, results) => {
+        if (error) throw error;
+        res.json(results);
+        res.end();
+    });
+});
+
+app.post('/pickupDate', (req, res) => {
+    db.query(
+        'SELECT COUNT(*) as cnt FROM parking_ticket WHERE check_out_date = ?',
+        req.body.check_out_date,
+        (error, results) => {
+            if (error) throw error;
+            res.json(results);
+            res.end();
+        }
+    );
+});
+
 app.post('/handleTicket', (req, res) => {
     const { VIN } = req.body;
     const { parkingType } = req.body;
