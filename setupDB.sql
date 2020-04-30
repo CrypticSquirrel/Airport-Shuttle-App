@@ -1,4 +1,4 @@
--- Run file: `mysql -u admin -p < setupDB.sql`
+-- To run file: `mysql -u admin -p < setupDB.sql`
 /* ----------------------------- Create Database ---------------------------- */
 CREATE DATABASE wbas_mysql;
 
@@ -61,10 +61,8 @@ CREATE TABLE parking_ticket (
     lot_id INT,
     VIN VARCHAR(255),
     PRIMARY KEY (ticket_id),
-    FOREIGN KEY(lot_id) REFERENCES lot(lot_id) ON UPDATE
-    SET
-        NULL,
-        FOREIGN KEY(VIN) REFERENCES vehicle(VIN)
+    FOREIGN KEY(lot_id) REFERENCES lot(lot_id) 
+    FOREIGN KEY(VIN) REFERENCES vehicle(VIN)
 );
 
 /* --------------------------------- END Create Tables -------------------------------- */
