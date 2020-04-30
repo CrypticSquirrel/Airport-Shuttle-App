@@ -44,11 +44,100 @@
                 </div>
             </div>
         </nav>
+
+        <section id="forms" class="container pb-2">
+            <div class="row align-items-center justify-content-center">
+            <div class="col-6">
+                <div class="card bg-transparent border-0">
+                    <div class="card-header text-center bg-transparent border-0">
+                        <h1>Check In Form</h1>
+                        <p class="lead">
+                            Please enter your information below.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div></section>
+
+        <section id="forms" class="container pb-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <form role="form">
+                        <div class="form-group row was-validated">
+                            <label class="col-md-2 col-form-label form-control-label text-muted">Name</label>
+                            <div class="col-md-4">
+                                <input class="form-control" type="text" id="name" required="">
+                            </div>
+                            <label class="col-md-1 col-form-label form-control-label text-muted">Email</label>
+                            <div class="col-md-5">
+                                <input class="form-control" type="text" id="email" required="">
+                            </div>
+                        </div>
+                        <div class="form-group row was-validated">
+                            <label class="col-md-2 col-form-label form-control-label text-muted">Return Date</label>
+                            <div class="col-md-4">
+                                <input class="form-control" type="date" id="return-date" required="">
+                            </div>
+                            <label class="col-md-1 col-form-label form-control-label text-muted">Phone</label>
+                            <div class="col-md-5">
+                                <input class="form-control" type="text" id="phone" required="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label form-control-label text-muted">Flight Number</label>
+                            <div class="col-md-5">
+                                <input class="form-control" type="text" placeholder="Depart Flight" id="depart-flight">
+                            </div>
+                            <div class="col-md-5">
+                                <input class="form-control" type="text" placeholder="Return Flight" id="return-flight">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label form-control-label text-muted">Pilots Only</label>
+                            <div class="col-md-5">
+                                <input class="form-control" type="text" placeholder="Pilot Licence Number" id="pLicence">
+                            </div>
+                            <div class="col-md-5">
+                                <input class="form-control" type="text" placeholder="Aircraft Registration Number" id="ARNumber">
+                            </div>
+                        </div>
+                        <div class="form-group row was-validated">
+                            <label class="col-lg-2 col-form-label form-control-label text-muted">Car Info</label>
+                            <div class="col-lg-4">
+                                <input class="form-control" type="text" placeholder="VIN" id="vin" required="">
+                            </div>
+                            <div class="col-lg-3">
+                                <input class="form-control" type="text" placeholder="Model" id="model" required="">
+                            </div>
+                            <div class="col-lg-3">
+                                <input class="form-control" type="text" placeholder="Make" id="make" required="">
+                            </div>
+                        </div>
+                        <div class="form-group row was-validated">
+                            <label class="col-lg-2 col-form-label form-control-label text-muted"></label>
+                            <div class="col-lg-10">
+                                <input class="form-control" type="text" placeholder="Plate Number" id="plate" required="">
+                                <div class="invalid-feedback">
+                                    Please fill out all required fields.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label form-control-label"></label>
+                            <div class="col-lg-10">
+                                <input type="reset" class="btn btn-outline-secondary mr-2" value="Cancel">
+                                <input type="button" class="btn btn-primary mr-2" value="Submit" id="submit-button">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
         
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src=""></script>
+        <script src="../scripts/cust-info.js"></script>
     </body>
 </html>

@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS customer;
 
 CREATE TABLE customer (
     customer_id int NOT NULL AUTO_INCREMENT,
-    name VARCHAR(255),
+    cust_name VARCHAR(255),
     email VARCHAR(255),
     phone VARCHAR(26),
     flight_number VARCHAR(255),

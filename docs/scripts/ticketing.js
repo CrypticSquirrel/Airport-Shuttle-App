@@ -2,7 +2,8 @@
 
 let isParkingCovered = true;
 
-function nice(json) {
+/* ----------------------------- Table Generator ---------------------------- */
+function generateTable(json) {
     // create Tabulator on DOM element with id "example-table"
     const table = new Tabulator('#example-table', {
         data: [json], // assign data to table
@@ -39,7 +40,7 @@ $(document).ready(function() {
                     $('#HomeDisplay').hide();
                     $('#DataDisplay').show();
                     console.log(json);
-                    nice(json);
+                    generateTable(json);
                 });
         }
     });
