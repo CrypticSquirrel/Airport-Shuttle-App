@@ -13,9 +13,12 @@ TODO
 
 Attribution 
 ---
-TODO
+
+#### Software
+- [mysqljs](https://github.com/mysqljs/mysql) : node.js driver for mysql
 
 License
 ---
 
 MIT License, Enjoy!
+
