@@ -232,6 +232,8 @@ app.get('/tomorrow', (req, res) => {
     });
 });
 
+/* ------------------------------- POST Routes ------------------------------ */
+
 app.post('/pickupDate', (req, res) => {
     db.query(
         'SELECT COUNT(*) as cnt FROM parking_ticket WHERE check_out_date = ?',
