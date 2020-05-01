@@ -1,5 +1,3 @@
-/* ---------------------------- JQuery Click Handlers ---------------------------- */
-
 $(document).ready(function() {
     fetch('/activeRecord')
         .then(response => response.json())

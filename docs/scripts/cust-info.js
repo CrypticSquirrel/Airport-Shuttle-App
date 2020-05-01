@@ -1,5 +1,3 @@
-/* ------------------------------ Form Handler ------------------------------ */
-
 $(document).ready(function() {
     $('#submit-button').click(() => {
         const cust_name = $('#name').val();
